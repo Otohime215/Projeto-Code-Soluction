@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo para o header */
+header {
+  background-image: url(/img/fun.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 250px;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Garante que o logo e os links fiquem nas extremidades */
+  padding: 0 20px; /* Adiciona um pouco de espaço nas laterais */
+  border-bottom: 2px solid rgb(16, 128, 176);
+  
+}
+main {
+ /*background-image: url(/img/fundoher.jpg);*/
+ color: rgb(60, 65, 70);
+ 
+}
+
+.Home-CS {
+  display: flex;
+  justify-content: space-evenly;
+  width: 800px;
+  height: 50px;
+  align-items: center;
+}
+
+/* Estilos para os links */
+.links {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+}
+
+.links li {
+  margin-left: 10px; /* Espaço entre os itens */
+}
+
+.links li a {
+  text-decoration: none;
+  color: white;
+  padding: 8px;
+  font-size: 30px;
+  transition: color 0.3s ease;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-left: 30px;
+}
+
+/* Efeito hover nos links */
+.links li :hover {
+  transition: 0.5s;
+  background-color: rgb(55, 135, 205); /* Um leve fundo ao passar o mouse */
+  border-bottom: 2px solid rgb(218, 218, 218); /* Corrige o erro do border */
+}
+
+/* Estilos para o logo */
+.Logo-CS img {
+  width: 300px;
+  height: auto; /* Mantém a proporção da imagem */
+}
+.carousel-item img{
+   
+}
+#Carrossel-CS{
+  width: 800px;
+  height: 300px;
+}
+
+
