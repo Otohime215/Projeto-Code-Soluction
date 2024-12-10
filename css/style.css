@@ -1,78 +1,538 @@
-body {
+
+section {
+  height: 100vh; /* Cada seção ocupa a altura total da tela */    
+  padding: 20px;
+}
+/* Estilo global */
+body, html {
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
-}
-
-/* Estilo para o header */
-header {
-  background-image: url(/img/fun.jpg);
-  background-size: cover;
-  width: 100%;
-  height: 250px;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: space-around; /* Garante que o logo e os links fiquem nas extremidades */
-  padding: 0 20px; /* Adiciona um pouco de espaço nas laterais */
-  border-bottom: 2px solid rgb(16, 128, 176);
+  min-height: 100vh; /* Garante que o body ocupe no mínimo a altura da janela */
+  box-sizing: border-box; /* Inclui bordas e padding no cálculo do tamanho */
+  overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+  font-family: 'Poppins', sans-serif;
+  background-color: transparent;
   
-}
-main {
- /*background-image: url(/img/fundoher.jpg);*/
- color: rgb(60, 65, 70);
- 
+  color: #fff;
 }
 
-.Home-CS {
-  display: flex;
-  justify-content: space-evenly;
-  width: 800px;
-  height: 50px;
-  align-items: center;
+.mae{
+  background-image: url('papelparede.avif');
+  background-size: cover; /* Garante que a imagem cubra toda a área do contêiner */
+  background-repeat: no-repeat; /* Impede a repetição da imagem */
+  background-position: center; /* Centraliza a imagem */
+  background-attachment: fixed; /* Mantém o fundo fixo enquanto o usuário rola a página */
+}
+/* Cabeçalho com imagem de fundo */
+#header-CS {
+  position: fixed; /* Mantém o cabeçalho fixo no topo durante o scroll */
+  top: 0; /* Posiciona no topo da página */
+  left: 0; /* Alinha à esquerda */
+  width: 100%; /* Ocupa toda a largura da página */
+  height: 100px; /* Altura do cabeçalho */
+  display: flex; /* Layout flexível */
+  justify-content: space-between; /* Espaça os elementos ao máximo */
+  align-items: center; /* Alinha os itens verticalmente */
+  padding: 0 20px; /* Espaçamento interno horizontal */
+  background: rgba(24, 7, 121, 0.221); /* Fundo translúcido com fallback */
+  backdrop-filter: blur(10px); /* Aplica um desfoque no fundo */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil na parte inferior */
+  z-index: 1000; /* Garante que fique acima de outros elementos */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
 }
 
-/* Estilos para os links */
-.links {
-  list-style-type: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-  justify-content: space-around;
+/* Imagem de fundo no cabeçalho */
+#header-CS::before {
+  content: ''; /* Elemento pseudo usado para a imagem */
+  position: absolute; /* Permite o posicionamento na camada inferior */
+  top: 0; /* Alinha ao topo do cabeçalho */
+  left: 0; /* Alinha à esquerda */
+  width: 100%; /* Ocupa toda a largura do cabeçalho */
+  height: 100%; /* Ocupa toda a altura do cabeçalho */
+  background: url('papelparede.avif') center/cover no-repeat; /* Imagem centralizada e ajustada */
+  background-color: #054be2; /* Cor de fundo alternativa */
+  z-index: -1; /* Mantém a imagem atrás do conteúdo */
+  opacity: 0.2; /* Transparência para contraste */
+}
+.titulo h1{
+  display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #f0f0f0;
+      font-size: 1.8em;
+      font-weight: bold;
+      margin-left: 100px;
 }
 
-.links li {
-  margin-left: 10px; /* Espaço entre os itens */
-}
-
-.links li a {
-  text-decoration: none;
-  color: white;
-  padding: 8px;
-  font-size: 30px;
-  transition: color 0.3s ease;
-  border-radius: 5px;
+span{
+  color: #e60d0d;
+  margin-right: 10px;
   font-weight: bold;
-  margin-left: 30px;
+  text-shadow: 0px 2px 3px #b8beb8;
 }
-
-/* Efeito hover nos links */
-.links li :hover {
-  transition: 0.5s;
-  background-color: rgb(55, 135, 205); /* Um leve fundo ao passar o mouse */
-  border-bottom: 2px solid rgb(218, 218, 218); /* Corrige o erro do border */
-}
-
-/* Estilos para o logo */
+/* Estilo do logo */
 .Logo-CS img {
-  width: 300px;
+  height: 100px; /* Define a altura do logo */
+  padding: 0 0 0 0px; /* Espaçamento à esquerda */
+  transition: transform 0.3s ease; /* Animação suave para o efeito hover */
+}
+
+.Logo-CS img:hover {
+  transform: scale(1.1); /* Aumenta ligeiramente o logo ao passar o mouse */
+}
+
+/* Links de navegação */
+.Home-CS .links {
+  list-style: none; /* Remove os marcadores padrão da lista */
+  display: flex; /* Layout flexível para alinhar horizontalmente */
+  margin: 0; /* Remove margens */
+  padding: 0 250px 0px 0px; /* Espaçamento à direita */
+}
+
+.Home-CS .links li {
+  margin: 0 15px; /* Espaçamento horizontal entre os itens */
+}
+
+.Home-CS .links a {
+  text-decoration: none; /* Remove sublinhado dos links */
+  color: #fffefe; /* Cor do texto */
+  font: bold; /* Define a fonte como negrito */
+  font-size: 20px; /* Tamanho da fonte */
+  position: relative; /* Necessário para o efeito do elemento ::after */
+  transition: color 0.3s ease; /* Transição suave na cor */
+}
+
+.Home-CS .links a::after {
+  content: ''; /* Linha decorativa abaixo do link */
+  position: absolute; /* Posiciona em relação ao link */
+  left: 0; /* Início à esquerda */
+  bottom: -5px; /* Espaçamento abaixo do texto */
+  width: 0; /* Inicialmente invisível */
+  height: 2px; /* Altura da linha */
+  background: linear-gradient(90deg, #b2b2b2, #75a1ff); /* Gradiente de cor */
+  transition: width 0.3s ease; /* Expansão suave da linha */
+}
+
+.Home-CS .links a:hover {
+  color: #ffffff; /* Destaca o texto ao passar o mouse */
+}
+
+.Home-CS .links a:hover::after {
+  width: 100%; /* Expande a linha decorativa ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) { /* Estilos para telas menores */
+  #header-CS {
+    flex-direction: column; /* Alinha os elementos verticalmente */
+    height: auto; /* Ajusta a altura automaticamente */
+    padding: 10px 20px; /* Reduz o espaçamento interno */
+  }
+
+  .Logo-CS img {
+    height: 50px; /* Reduz o tamanho do logo */
+  }
+
+  .Home-CS .links {
+    flex-direction: column; /* Empilha os links verticalmente */
+    align-items: center; /* Centraliza os links */
+  }
+
+  .Home-CS .links li {
+    margin: 10px 0; /* Espaçamento vertical entre os links */
+  }
+}
+
+
+
+
+
+/* Estilo para a section */
+#Carrossel-CS {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 99.5vh; /* Ocupa toda a altura da viewport */
+  padding: 20px;
+}
+
+/* Estilo do carrossel */
+#carouselExampleIndicators {
+  width: 60%; /* Ajuste para um tamanho confortável */
+  max-width: 800px; /* Limite máximo de largura */
+  border-radius: 15px; /* Bordas arredondadas */
+  overflow: hidden; /* Garante que bordas sejam visíveis */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra elegante */
+}
+
+/* Imagens do carrossel */
+.carousel-inner img {
+  width: 100%; /* Faz a imagem ocupar toda a largura do carrossel */
+  height: auto; /* Mantém proporção */
+  border-radius: 15px; /* Bordas arredondadas */
+}
+
+/* Botões de navegação */
+.carousel-control-prev, .carousel-control-next {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.7); /* Fundo semi-transparente */
+  border-radius: 50%; /* Forma arredondada */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%); /* Ajuste fino para centralização */
+  z-index: 10; /* Garante que fiquem acima do conteúdo */
+  transition: background-color 0.3s ease;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  background-color: rgba(255, 255, 255, 1); /* Fundo mais opaco ao passar o mouse */
+}
+
+/* Ícones de seta */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  filter: invert(1); /* Garante visibilidade (torna branco os ícones padrões do Bootstrap) */
+  width: 20px;
+  height: 20px;
+}
+
+/* Indicadores do carrossel */
+.carousel-indicators button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* Indicadores arredondados */
+  background-color: rgba(15, 3, 121, 0.5); /* Cor padrão */
+  transition: background-color 0.3s ease;
+}
+
+.carousel-indicators button.active {
+  background-color: #ff758c; /* Cor do indicador ativo */
+}
+
+.carousel-indicators button:hover {
+  background-color: #ff7eb3; /* Cor ao passar o mouse */
+}
+/* Estilo para a section */
+#sobre-CS {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Garante que os itens se ajustem em telas menores */
+  gap: 20px; /* Espaçamento entre os itens */
+  z-index: -1; /* Garante que a imagem fique atrás do conteúdo */
+  color: #fff;
+  text-align: center;
+} 
+/* Estilo para a div de texto */
+.fala-CS {
+  flex: 1; /* Ocupa metade do espaço disponível */
+  max-width: 600px; /* Limita a largura máxima */
+}
+
+.fala-CS h1 {
+  font-size: 2.5rem; /* Tamanho confortável para títulos */
+  line-height: 1.5;
+  margin: 0;
+  color: #f5f0f2; /* Destaque para o texto */
+  font-weight: 300;
+  font-family: 'Courier';
+  padding: 0px 50px 160px; 
+}
+
+/* Estilo para a div de imagem */
+.img-CS {
+  flex: 1; /* Ocupa metade do espaço disponível */
+  max-width: 1000px; /* Limita a largura máxima */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px 20px 20px;
+}
+
+.img-CS img {
+  max-width: 100%; /* Garante que a imagem se ajuste à div */
   height: auto; /* Mantém a proporção da imagem */
+  border-radius: 15px; /* Bordas arredondadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
 }
-.carousel-item img{
-   
-}
-#Carrossel-CS{
-  width: 800px;
-  height: 300px;
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #sobre-CS {
+      flex-direction: column; /* Alinha os itens em coluna em telas menores */
+  }
+
+  .fala-CS, .img-CS {
+      max-width: 100%; /* Permite que as divs usem a largura total */
+  }
+
+  .fala-CS h1 {
+      font-size: 1.8rem; /* Reduz o tamanho do texto em telas menores */
+  }
 }
 
 
+
+
+
+
+/* Estilo para a seção */
+#table-CS-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Permite ajuste automático em telas menores */
+  gap: 20px; /* Espaçamento entre os elementos */
+  padding: 40px 20px; 
+}
+
+/* Estilo para cada área (div) */
+#table-CS-1 .table-1, #table-CS-1 .table-2 {
+  flex: 1;
+  width: 300px; /* Tamanho confortável para desktop */
+  text-align: center;
+  padding: 20px;
+  border-radius: 15px; /* Bordas arredondadas */
+  background: rgba(0, 4, 247, 0.178); /* Fundo translúcido */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3); /* Sombra para destaque */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Animação ao passar o mouse */
+#table-CS-1 .table-1:hover, #table-CS-1 .table-2:hover {
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+  background: rgba(24, 24, 36, 0.678);  /* Destaca o fundo */
+}
+ 
+/* Imagem no topo */
+#table-CS-1 .table-1 img, #table-CS-1 .table-2 img {
+  width: 100%; /* Ocupa toda a largura do container */
+  height: 150px; /* Altura definida */
+  object-fit: cover; /* Garante que a imagem se ajuste sem distorção */
+  border-radius: 10px; /* Bordas arredondadas */
+  margin-bottom: 15px;
+}
+
+/* Título e texto */
+#table-CS-1 .table-1 h1, #table-CS-1 .table-2 h1 {
+  font-size: 1.5rem;
+  color: #ffffff; /* Destaque para o texto */
+  margin: 10px 0;
+}
+
+#table-CS-1 .table-1 p, #table-CS-1 .table-2 p {
+  font-size: 1rem;
+  color: #f0f0f0;
+  line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #table-CS-1 {
+      flex-direction: column; /* Empilha os itens em telas menores */
+  }
+
+  #table-CS-1 .table-1, #table-CS-1 .table-2 {
+      max-width: 100%; /* Ocupa toda a largura em telas menores */
+  }
+}
+
+/* Adicionando espaço entre cada section */
+#table-CS-1, #table-CS-2, #table-CS-3 {
+  margin-bottom: 200px; /* Adiciona um espaço de 40px entre as seções */
+}
+
+
+/* Estilo para a seção */
+#table-CS-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Permite ajuste automático em telas menores */
+  gap: 20px; /* Espaçamento entre os elementos */
+  padding: 40px 20px;
+}
+
+/* Estilo para cada área (div) */
+#table-CS-2 .table-1, #table-CS-2 .table-2, #table-CS-2 .table-3 {
+  flex: 1;
+  width: 300px; /* Tamanho confortável para desktop */
+  text-align: center;
+  padding: 20px;
+  border-radius: 15px; /* Bordas arredondadas */
+  background: rgba(0, 4, 247, 0.178); /* Fundo translúcido */
+  box-shadow: 0 4px 10px rgba(247, 243, 243, 0.3); /* Sombra para destaque */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* Animação ao passar o mouse */
+#table-CS-2 .table-1:hover, #table-CS-2 .table-2:hover, #table-CS-2 .table-3:hover {
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+  background: rgba(24, 24, 36, 0.678); 
+}
+
+/* Imagem no topo */
+#table-CS-2 .table-1 img, #table-CS-2 .table-2 img, #table-CS-2 .table-3 img {
+  width: 100%; /* Ocupa toda a largura do container */
+  height: 150px; /* Altura definida */
+  object-fit: cover; /* Garante que a imagem se ajuste sem distorção */
+  border-radius: 10px; /* Bordas arredondadas */
+  margin-bottom: 15px;
+}
+
+/* Título e texto */
+#table-CS-2 .table-1 h1, #table-CS-2 .table-2 h1, #table-CS-2 .table-3 h1 {
+  font-size: 1.5rem;
+  color: #eee4e8; /* Destaque para o texto */
+  margin: 10px 0;
+}
+
+/* Estilização geral para os parágrafos nas tabelas */
+#table-CS-2 .table-1 p, #table-CS-2 .table-2 p, #table-CS-2 .table-3 p {
+  font-size: 1rem; /* Tamanho da fonte */
+  color: #fff; /* Cor do texto */
+  line-height: 1.5; /* Altura da linha para facilitar a leitura */
+}
+
+/* Responsividade */
+@media (max-width: 768px) { /* Aplica estilos específicos para telas menores */
+  #table-CS-2 {
+      flex-direction: column; /* Empilha os itens verticalmente */
+  }
+
+  #table-CS-2 .table-1, #table-CS-2 .table-2, #table-CS-2 .table-3 {
+      max-width: 100%; /* Os elementos ocupam toda a largura da tela */
+  }
+}
+
+/* Estilo para a seção com ID table-CS-3 */
+#table-CS-3 {
+  display: flex; /* Layout flexível */
+  justify-content: center; /* Centraliza os elementos */
+  align-items: center; /* Alinha os itens verticalmente */
+  flex-wrap: wrap; /* Permite que os itens se ajustem em várias linhas */
+  gap: 20px; /* Espaçamento entre os elementos */
+  padding: 40px 20px; /* Espaçamento interno da seção */
+}
+
+/* Estilo para cada área (div) dentro de table-CS-3 */
+#table-CS-3 .table-1, #table-CS-3 .table-2, #table-CS-3 .table-3 {
+  flex: 1; /* Cada item ocupa espaço proporcional */
+  width: 300px; /* Largura máxima para elementos em desktop */
+  text-align: center; /* Centraliza o texto */
+  padding: 20px; /* Espaçamento interno */
+  border-radius: 15px; /* Bordas arredondadas */
+  background: rgba(0, 4, 247, 0.178); /* Fundo translúcido */
+  box-shadow: 0 4px 10px rgba(247, 243, 243, 0.3); /* Sombra para destaque */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Transições suaves */
+  cursor: pointer; /* Muda o cursor para indicar interatividade */
+  overflow: hidden; /* Esconde conteúdos excedentes */
+}
+
+/* Efeito ao passar o mouse sobre os elementos */
+#table-CS-3 .table-1:hover, #table-CS-3 .table-2:hover, #table-CS-3 .table-3:hover {
+  transform: scale(1.05); /* Aumenta o tamanho ligeiramente */
+  background: rgba(24, 24, 36, 0.678); /* Altera a cor do fundo */
+}
+
+/* Estilo das imagens no topo dos elementos */
+#table-CS-3 .table-1 img, #table-CS-3 .table-2 img, #table-CS-3 .table-3 img {
+  width: 100%; /* Imagem ocupa toda a largura do container */
+  height: 150px; /* Altura fixa */
+  object-fit: cover; /* Ajusta a imagem sem distorção */
+  border-radius: 10px; /* Bordas arredondadas */
+  margin-bottom: 15px; /* Espaçamento abaixo da imagem */
+}
+
+/* Estilo para o título (h1) */
+#table-CS-3 .table-1 h1, #table-CS-3 .table-2 h1, #table-CS-3 .table-3 h1 {
+  font-size: 1.5rem; /* Tamanho do texto */
+  color: #f3ebef; /* Cor do texto */
+  margin: 10px 0; /* Margem superior e inferior */
+}
+
+/* Estilização geral para os parágrafos */
+#table-CS-3 .table-1 p, #table-CS-3 .table-2 p, #table-CS-3 .table-3 p {
+  font-size: 1rem; /* Tamanho do texto */
+  color: #fff; /* Cor do texto */
+  line-height: 1.5; /* Altura da linha */
+}
+
+/* Estilo do rodapé */
+footer {
+  height: 50vh; /* Cada seção ocupa a altura total da tela */    
+  padding: 20px;
+  background: rgba(24, 7, 121, 0.221); /* Fundo translúcido com fallback */
+  backdrop-filter: blur(10px); /* Aplica um desfoque no fundo */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Linha sutil na parte inferior */
+  color: #ffffff; /* Cor do texto */
+  margin: 0; /* Remove margens */
+  text-align: center; /* Centraliza o texto */
+  font-family: Arial, sans-serif; /* Fonte padrão */
+}
+
+/* Container do rodapé */
+.footer-container {
+  display: flex; /* Layout flexível */
+  justify-content: space-around; /* Espaço entre os itens */
+  flex-wrap: wrap; /* Ajusta os itens em várias linhas, se necessário */
+  width: 100vw; /* Largura máxima do container */
+  margin: 0 auto; /* Centraliza o container */
+  padding: 20px /* Espaçamento interno */
+}
+
+.footer-container > div {
+  flex: 1; /* Cada seção ocupa espaço proporcional */
+  margin: 10px; /* Margem entre os elementos */
+}
+
+.footer-about,
+.footer-links,
+.footer-social {
+  text-align: left; /* Texto alinhado à esquerda */
+  margin: 0;
+}
+
+
+/* Links na seção de links do rodapé */
+.footer-links ul {
+  list-style: none; /* Remove marcadores da lista */
+  padding: 0; /* Remove o espaçamento interno */
+}
+
+.footer-links li {
+  margin: 5px 0; /* Margem entre os itens da lista */
+}
+
+.footer-links a {
+  color: #61dafb; /* Cor dos links */
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+.footer-links a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Links da seção social no rodapé */
+.footer-social a {
+  color: #61dafb; /* Cor dos links */
+  margin: 0 5px; /* Espaçamento horizontal entre os links */
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+.footer-social a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estilo para o rodapé inferior */
+.footer-bottom {
+  margin-top: 20px; /* Espaçamento acima */
+  font-size: 0.9em; /* Tamanho do texto menor */
+}
